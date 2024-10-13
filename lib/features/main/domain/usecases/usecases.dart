@@ -1,0 +1,1 @@
+export 'get_entries_usecase.dart';
