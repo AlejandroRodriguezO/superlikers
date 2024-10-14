@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/core.dart';
 import '../../../main.dart';
+import 'custom_slider_thumb.dart';
+import 'info_card_kpi.dart';
 import 'progress_bar_name_widget.dart';
 
 class CardKpiWidget extends StatefulWidget {
@@ -30,6 +32,11 @@ class _CardKpiWidgetState extends State<CardKpiWidget> {
 
   @override
   Widget build(BuildContext context) {
+    double mount = 0;
+    for (final KpiEntity gPercentage in filteredKpis) {
+      mount += gPercentage.percentage;
+    }
+
     return Container(
       margin: const EdgeInsets.all(20.0),
       padding: const EdgeInsets.all(15.0),
@@ -44,35 +51,13 @@ class _CardKpiWidgetState extends State<CardKpiWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'Metas por volumen',
-            style: TextStyle(
-              color: Colors.amber,
-              fontSize: 14.sp,
-              fontWeight: FontWeight.bold,
+          const InfoCardKpi(),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 20,
             ),
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          Text(
-            'Estas son las principales metas por volumen que debes cumplir al mes.',
-            style: TextStyle(
-              color: AppColors.white,
-              fontSize: 12.sp,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 10.h,
-          ),
-          Text(
-            'A medida que avanzas en cada una, vas sumando a porcentaje de cumplimiento total para obtener tu bonificación.',
-            style: TextStyle(
-              color: AppColors.white,
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w200,
-              fontStyle: FontStyle.italic,
+            child: ProgressIndicatorWidget(
+              progress: mount,
             ),
           ),
           Row(
@@ -106,7 +91,7 @@ class _CardKpiWidgetState extends State<CardKpiWidget> {
                     }).toList(),
                     style: TextStyle(
                       fontSize: 10.sp,
-                      color: Colors.black,
+                      color: AppColors.black,
                     ),
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     underline: const SizedBox.shrink(),
@@ -148,6 +133,63 @@ class _CardKpiWidgetState extends State<CardKpiWidget> {
               ),
             ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class ProgressIndicatorWidget extends StatelessWidget {
+  const ProgressIndicatorWidget({Key? key, required this.progress})
+      : super(key: key);
+  final double progress;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliderTheme(
+      data: SliderTheme.of(context).copyWith(
+        trackHeight: 20.0,
+        activeTrackColor: AppColors.greenProgressColor,
+        inactiveTrackColor: AppColors.scaffoldColor,
+        thumbShape: CustomSliderThumb(
+          thumbRadius: 18.0,
+          value: progress,
+        ),
+        overlayShape: const RoundSliderOverlayShape(overlayRadius: 32.0),
+      ),
+      child: Stack(
+        children: <Widget>[
+          TweenAnimationBuilder<double>(
+              tween: Tween<double>(begin: 0, end: progress),
+              duration: const Duration(milliseconds: 500),
+              builder: (BuildContext context, double value, _) {
+                return Slider(
+                  value: value,
+                  min: 0,
+                  max: 100,
+                  allowedInteraction: SliderInteraction.tapOnly,
+                  onChanged: (double value) {},
+                );
+              }),
+          if (progress < 100)
+            Positioned(
+              right: 0,
+              top: 12,
+              child: Container(
+                padding: const EdgeInsets.all(10.0),
+                decoration: const BoxDecoration(
+                  color: AppColors.greenProgressColor,
+                  shape: BoxShape.circle,
+                ),
+                child: const Text(
+                  '100%',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );

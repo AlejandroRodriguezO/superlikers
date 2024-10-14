@@ -17,19 +17,22 @@ class _MyAppState extends State<MyApp> with RouterMixin {
   Widget build(BuildContext context) {
     return BlocProvider<AuthenticationCubit>(
       create: (_) => locator<AuthenticationCubit>(),
-      child: ScreenUtilInit(
-          designSize: const Size(360, 690),
-          minTextAdapt: true,
-          builder: (_, Widget? child) {
-            return MaterialApp.router(
-              debugShowCheckedModeBanner: false,
-              title: 'Superlikers',
-              routerConfig: router,
-              theme: ThemeData(
-                scaffoldBackgroundColor: AppColors.scaffoldColor,
-              ),
-            );
-          }),
+      child: GestureDetector(
+        onTap:()=> FocusManager.instance.primaryFocus?.unfocus(),
+        child: ScreenUtilInit(
+            designSize: const Size(360, 690),
+            minTextAdapt: true,
+            builder: (_, Widget? child) {
+              return MaterialApp.router(
+                debugShowCheckedModeBanner: false,
+                title: 'Superlikers',
+                routerConfig: router,
+                theme: ThemeData(
+                  scaffoldBackgroundColor: AppColors.scaffoldColor,
+                ),
+              );
+            }),
+      ),
     );
   }
 }

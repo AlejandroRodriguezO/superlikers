@@ -13,6 +13,4 @@ abstract class Env {
   //api_key
   @EnviedField(varName: 'API_KEY')
   static const String apiKey = _Env.apiKey;
-
-
 }

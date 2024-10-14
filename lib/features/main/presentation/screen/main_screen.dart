@@ -1,19 +1,39 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import 'widgets/custom_appbar.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key, required this.child});
 
   final StatefulNavigationShell child;
 
   @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+  @override
+  void initState() {
+    super.initState();
+    permissions();
+  }
+
+  Future<void> permissions() async {
+    await Permission.notification.isDenied.then((bool value) {
+      if (value) {
+        Permission.notification.request();
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      body: child,
+      body: widget.child,
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -29,11 +49,11 @@ class MainScreen extends StatelessWidget {
             label: 'Autoejecución',
           ),
         ],
-        currentIndex: child.currentIndex,
+        currentIndex: widget.child.currentIndex,
         selectedItemColor: Colors.orange,
-        onTap: (int i) => child.goBranch(
+        onTap: (int i) => widget.child.goBranch(
           i,
-          initialLocation: i == child.currentIndex,
+          initialLocation: i == widget.child.currentIndex,
         ),
       ),
     );

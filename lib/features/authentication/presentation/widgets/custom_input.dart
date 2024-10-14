@@ -7,11 +7,15 @@ class CustomInput extends StatelessWidget {
   const CustomInput({
     super.key,
     required this.label,
+    this.obscureText = false,
+    this.suffix,
     this.onChanged,
     this.validator,
   });
 
   final String label;
+  final bool obscureText;
+  final Widget? suffix;
   final void Function(String)? onChanged;
   final String? Function(String?)? validator;
 
@@ -33,6 +37,7 @@ class CustomInput extends StatelessWidget {
           height: 4.h,
         ),
         TextFormField(
+          obscureText: obscureText,
           decoration: InputDecoration(
             hintText: label,
             hintStyle: TextStyle(
@@ -66,6 +71,7 @@ class CustomInput extends StatelessWidget {
             ),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+            suffixIcon: suffix,
           ),
           style: TextStyle(
             color: Colors.blue.shade200,

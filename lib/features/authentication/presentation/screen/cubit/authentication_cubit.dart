@@ -21,6 +21,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
   void onChangedUsername(String value) => emit(state.copyWith(username: value));
   void onChangedPassword(String value) => emit(state.copyWith(password: value));
+  void onChangedTerms(bool value) => emit(state.copyWith(isTerms: value));
+  void onChangedPrivacy(bool value) => emit(state.copyWith(isPrivacy: value));
 
   Future<void> signIn() async {
     emit(

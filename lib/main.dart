@@ -7,6 +7,7 @@ import 'core/core.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
+  await LocalStorage.init();
   await initializeDependencies();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   runApp(const MyApp());

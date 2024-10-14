@@ -30,12 +30,19 @@ class AuthenticationDatasourceImpl implements AuthenticationDatasource {
         ApiUrls.signInPath,
         data: data,
       );
-      final SessionModel result =
-          SessionModel.fromJson(jsonDecode(response.data));
-      return right(result);
+      if (response.statusCode == 200) {
+        final SessionModel result =
+            SessionModel.fromJson(jsonDecode(response.data));
+        return right(result);
+      }
+      return left(
+        AppError(
+          message: jsonDecode(response.data)['message'],
+        ),
+      );
     } on DioException catch (e) {
       return left(
-        AppError(message: jsonDecode(e.response!.data)['message']),
+        AppError(message: jsonDecode(e.response?.data)['message'] ?? ''),
       );
     }
   }

@@ -9,7 +9,6 @@ import '../core.dart';
 final GetIt locator = GetIt.instance;
 
 Future<void> initializeDependencies() async {
-  await LocalStorage.init();
   locator
     ..registerSingleton<Dio>(
       Dio(

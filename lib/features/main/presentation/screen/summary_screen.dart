@@ -20,31 +20,30 @@ class _SummaryScreenState extends State<SummaryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 12.h,
-          ),
-          const BannerSummary(),
-          SizedBox(
-            height: 10.h,
-          ),
-          const SegmentedControlWidget(),
-          BlocBuilder<SummaryCubit, SummaryState>(
-            builder: (BuildContext context, SummaryState state) {
-              return switch (state.entriesState) {
-                final EntriesLoaded data =>
-                  Builder(builder: (BuildContext context) {
-                    return SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              height: 12.h,
+            ),
+            const BannerSummary(),
+            SizedBox(
+              height: 10.h,
+            ),
+            const SegmentedControlWidget(),
+            BlocBuilder<SummaryCubit, SummaryState>(
+              builder: (BuildContext context, SummaryState state) {
+                return switch (state.entriesState) {
+                  final EntriesLoaded data => SingleChildScrollView(
                       child: CardKpiWidget(data: data.entries.first.data),
-                    );
-                  }),
-                final EntriesFailed error => Text(error.message),
-                _ => const CircularProgressIndicator.adaptive()
-              };
-            },
-          ),
-        ],
+                    ),
+                  final EntriesFailed error => Text(error.message),
+                  _ => const CircularProgressIndicator.adaptive()
+                };
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
