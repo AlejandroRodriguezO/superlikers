@@ -5,20 +5,15 @@ import 'package:superlikers/features/features.dart';
 
 import '../../core.dart';
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> with RouterMixin {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AuthenticationCubit>(
       create: (_) => locator<AuthenticationCubit>(),
       child: GestureDetector(
-        onTap:()=> FocusManager.instance.primaryFocus?.unfocus(),
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: ScreenUtilInit(
             designSize: const Size(360, 690),
             minTextAdapt: true,

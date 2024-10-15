@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
-            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">11</td>
             <td class="headerCovTableEntry">0</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2024-10-14 12:56:28</td>
+            <td class="headerValue">2024-10-15 10:03:56</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -67,37 +67,32 @@
 <span id="L5"><span class="lineNum">       5</span>              : </span>
 <span id="L6"><span class="lineNum">       6</span>              : import '../../core.dart';</span>
 <span id="L7"><span class="lineNum">       7</span>              : </span>
-<span id="L8"><span class="lineNum">       8</span>              : class MyApp extends StatefulWidget {</span>
+<span id="L8"><span class="lineNum">       8</span>              : class MyApp extends StatelessWidget {</span>
 <span id="L9"><span class="lineNum">       9</span> <span class="tlaUNC tlaBgUNC">           0 :   const MyApp({Key? key}) : super(key: key);</span></span>
 <span id="L10"><span class="lineNum">      10</span>              : </span>
 <span id="L11"><span class="lineNum">      11</span> <span class="tlaUNC">           0 :   @override</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaUNC">           0 :   State&lt;MyApp&gt; createState() =&gt; _MyAppState();</span></span>
-<span id="L13"><span class="lineNum">      13</span>              : }</span>
-<span id="L14"><span class="lineNum">      14</span>              : </span>
-<span id="L15"><span class="lineNum">      15</span>              : class _MyAppState extends State&lt;MyApp&gt; with RouterMixin {</span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaUNC">           0 :   @override</span></span>
-<span id="L17"><span class="lineNum">      17</span>              :   Widget build(BuildContext context) {</span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaUNC">           0 :     return BlocProvider&lt;AuthenticationCubit&gt;(</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaUNC">           0 :       create: (_) =&gt; locator&lt;AuthenticationCubit&gt;(),</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaUNC">           0 :       child: GestureDetector(</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC">           0 :         onTap:()=&gt; FocusManager.instance.primaryFocus?.unfocus(),</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC">           0 :         child: ScreenUtilInit(</span></span>
-<span id="L23"><span class="lineNum">      23</span>              :             designSize: const Size(360, 690),</span>
-<span id="L24"><span class="lineNum">      24</span>              :             minTextAdapt: true,</span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :             builder: (_, Widget? child) {</span></span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaUNC">           0 :               return MaterialApp.router(</span></span>
-<span id="L27"><span class="lineNum">      27</span>              :                 debugShowCheckedModeBanner: false,</span>
-<span id="L28"><span class="lineNum">      28</span>              :                 title: 'Superlikers',</span>
-<span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC">           0 :                 routerConfig: router,</span></span>
-<span id="L30"><span class="lineNum">      30</span> <span class="tlaUNC">           0 :                 theme: ThemeData(</span></span>
-<span id="L31"><span class="lineNum">      31</span>              :                   scaffoldBackgroundColor: AppColors.scaffoldColor,</span>
-<span id="L32"><span class="lineNum">      32</span>              :                 ),</span>
-<span id="L33"><span class="lineNum">      33</span>              :               );</span>
-<span id="L34"><span class="lineNum">      34</span>              :             }),</span>
-<span id="L35"><span class="lineNum">      35</span>              :       ),</span>
-<span id="L36"><span class="lineNum">      36</span>              :     );</span>
-<span id="L37"><span class="lineNum">      37</span>              :   }</span>
-<span id="L38"><span class="lineNum">      38</span>              : }</span>
+<span id="L12"><span class="lineNum">      12</span>              :   Widget build(BuildContext context) {</span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaUNC">           0 :     return BlocProvider&lt;AuthenticationCubit&gt;(</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaUNC">           0 :       create: (_) =&gt; locator&lt;AuthenticationCubit&gt;(),</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaUNC">           0 :       child: GestureDetector(</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaUNC">           0 :         onTap: () =&gt; FocusManager.instance.primaryFocus?.unfocus(),</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaUNC">           0 :         child: ScreenUtilInit(</span></span>
+<span id="L18"><span class="lineNum">      18</span>              :             designSize: const Size(360, 690),</span>
+<span id="L19"><span class="lineNum">      19</span>              :             minTextAdapt: true,</span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaUNC">           0 :             builder: (_, Widget? child) {</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC">           0 :               return MaterialApp.router(</span></span>
+<span id="L22"><span class="lineNum">      22</span>              :                 debugShowCheckedModeBanner: false,</span>
+<span id="L23"><span class="lineNum">      23</span>              :                 title: 'Superlikers',</span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :                 routerConfig: router,</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :                 theme: ThemeData(</span></span>
+<span id="L26"><span class="lineNum">      26</span>              :                   scaffoldBackgroundColor: AppColors.scaffoldColor,</span>
+<span id="L27"><span class="lineNum">      27</span>              :                 ),</span>
+<span id="L28"><span class="lineNum">      28</span>              :               );</span>
+<span id="L29"><span class="lineNum">      29</span>              :             }),</span>
+<span id="L30"><span class="lineNum">      30</span>              :       ),</span>
+<span id="L31"><span class="lineNum">      31</span>              :     );</span>
+<span id="L32"><span class="lineNum">      32</span>              :   }</span>
+<span id="L33"><span class="lineNum">      33</span>              : }</span>
         </pre>
               </td>
             </tr>

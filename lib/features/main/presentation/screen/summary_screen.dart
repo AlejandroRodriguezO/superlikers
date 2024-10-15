@@ -7,15 +7,8 @@ import 'widgets/banner_summary.dart';
 import 'widgets/card_kpi_widget.dart';
 import 'widgets/segmented_control_widget.dart';
 
-class SummaryScreen extends StatefulWidget {
+class SummaryScreen extends StatelessWidget {
   const SummaryScreen({super.key});
-
-  @override
-  State<SummaryScreen> createState() => _SummaryScreenState();
-}
-
-class _SummaryScreenState extends State<SummaryScreen> {
-  List<KpiEntity> allKpis = <KpiEntity>[];
 
   @override
   Widget build(BuildContext context) {

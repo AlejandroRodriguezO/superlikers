@@ -4,7 +4,7 @@ import 'package:mockito/mockito.dart';
 import 'package:superlikers/core/domain/entities/app_error.dart';
 import 'package:superlikers/features/features.dart';
 
-import '../../../../../helpers/helper.mocks.dart';
+import '../../../../helpers/helper.mocks.dart';
 
 void main() {
   late GetEntriesUsecase getEntriesUsecase;

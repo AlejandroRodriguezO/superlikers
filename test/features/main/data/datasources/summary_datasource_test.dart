@@ -7,8 +7,8 @@ import 'package:mockito/mockito.dart';
 import 'package:superlikers/core/core.dart';
 import 'package:superlikers/features/features.dart';
 
-import '../../../../../helpers/dummy_data/json_reader.dart';
-import '../../../../../helpers/helper.mocks.dart';
+import '../../../../helpers/dummy_data/json_reader.dart';
+import '../../../../helpers/helper.mocks.dart';
 
 void main() {
   late MockDio mockDio;

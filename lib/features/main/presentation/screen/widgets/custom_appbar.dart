@@ -39,80 +39,82 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   color: Colors.amber,
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(
-                    'Gerson Joel Camacho',
-                    style: TextStyle(
-                      color: AppColors.white,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text.rich(
-                    TextSpan(
+              FittedBox(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      'Gerson Joel Camacho',
                       style: TextStyle(
                         color: AppColors.white,
                         fontSize: 14.sp,
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.w600,
                       ),
-                      children: const <InlineSpan>[
-                        TextSpan(
-                          text: 'Cod. Modelo: ',
-                          style: TextStyle(
-                            fontStyle: FontStyle.italic,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '102100101',
-                          style: TextStyle(fontWeight: FontWeight.w600),
-                        ),
-                      ],
                     ),
-                  ),
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
-                    decoration: BoxDecoration(
-                      color: AppColors.dropdownColor,
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        Text.rich(
+                    Text.rich(
+                      TextSpan(
+                        style: TextStyle(
+                          color: AppColors.white,
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        children: const <InlineSpan>[
                           TextSpan(
+                            text: 'Cod. Modelo: ',
                             style: TextStyle(
-                              color: AppColors.white,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w300,
+                              fontStyle: FontStyle.italic,
                             ),
-                            children: const <InlineSpan>[
-                              TextSpan(
-                                text: 'Modelorama: ',
-                                style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                ),
-                              ),
-                              TextSpan(
-                                text: 'Nuevo León',
-                                style: TextStyle(fontWeight: FontWeight.w600),
-                              ),
-                            ],
                           ),
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        const Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: Colors.grey,
-                        ),
-                      ],
+                          TextSpan(
+                            text: '102100101',
+                            style: TextStyle(fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 2, horizontal: 10),
+                      decoration: BoxDecoration(
+                        color: AppColors.dropdownColor,
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Text.rich(
+                            TextSpan(
+                              style: TextStyle(
+                                color: AppColors.white,
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w300,
+                              ),
+                              children: const <InlineSpan>[
+                                TextSpan(
+                                  text: 'Modelorama: ',
+                                  style: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'Nuevo León',
+                                  style: TextStyle(fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          const Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: Colors.grey,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
               const Spacer(),
               Image.asset(
