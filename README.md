@@ -2,7 +2,10 @@
 
 ## Correr la app
 
-### <link href="" ><a> descargar aqui </a></link>
+### descargar aqui
+```
+https://install.appcenter.ms/users/alejandrorodriguez/apps/superlikers/distribution_groups/testers
+```
 
 ### Funcionamiento
 
@@ -11,7 +14,6 @@ al iniciar se encuentra la pantalla de login donde se valida si los campos son v
 Al iniciar sesión se guarda el estado en loca storage y cuando cierre la app y la vuelva a abrir ya no entra a la pantalla de login si no que redirige directamente a el main.
 
 ## Como usarlo
-
 **Paso 1:**
 
 Descargar o clonar este respositorio usando este link:
